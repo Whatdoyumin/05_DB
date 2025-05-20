@@ -17,3 +17,27 @@ GRANT ALL PRIVILEGES ON sqldb.* TO 'scoula'@'%';
 
 -- 권한 적용
 FLUSH PRIVILEGES;
+
+
+
+SELECT @@autocommit;
+
+set autocommit = false;
+
+SELECT @@autocommit;
+
+USE sqldb;
+
+SELECT * FROM buytbl;
+
+START TRANSACTION;
+
+
+DELETE FROM buytbl WHERE num = 1;
+DELETE FROM buytbl WHERE num = 2;
+
+SELECT * FROM BUYTBL;
+
+ROLLBACK;
+
+SELECT * FROM BUYTBL;
